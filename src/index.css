@@ -156,7 +156,9 @@ a { color: inherit; text-decoration: none; }
 .skill { padding: 12px; display: flex; align-items: center; gap: 12px; border-radius: 12px; color: var(--muted); font-size: 12px; font-weight: 500; transition: color .3s, background .3s, transform .3s; }
 .skill i { width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 9px; color: var(--muted); font-size: 9px; font-weight: 800; font-style: normal; transition: all .3s; }
 .skill:hover { color: var(--text); background: var(--surface); transform: translateX(3px); }
-.skill:hover i { color: white; border-color: transparent; background: var(--blue); }
+.skill i img { width: 22px; height: 22px; object-fit: contain; }
+.dark .skill i img.logo-mono { filter: invert(1); }
+.skill:hover i { border-color: var(--blue); transform: scale(1.06); }
 
 .experience-section { background: var(--bg); }
 .experience-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 120px; }

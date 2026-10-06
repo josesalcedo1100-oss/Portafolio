@@ -79,11 +79,13 @@ const projects = [
   },
 ];
 
+const logo = (path: string) => `https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/${path}.svg`;
+
 const skillGroups = [
-  { title: "Lenguajes", skills: [["TS", "TypeScript"], ["PY", "Python"], ["GO", "Go"], ["JS", "JavaScript"]] },
-  { title: "Frameworks", skills: [["RE", "React"], ["NX", "Next.js"], ["NO", "Node.js"], ["FA", "FastAPI"]] },
-  { title: "Datos & Cloud", skills: [["PG", "PostgreSQL"], ["RD", "Redis"], ["AW", "AWS"], ["DK", "Docker"]] },
-  { title: "Herramientas", skills: [["GT", "Git"], ["FG", "Figma"], ["LX", "Linux"], ["GR", "Grafana"]] },
+  { title: "Lenguajes", skills: [[logo("typescript/typescript-original"), "TypeScript"], [logo("python/python-original"), "Python"], [logo("go/go-original-wordmark"), "Go"], [logo("javascript/javascript-original"), "JavaScript"]] },
+  { title: "Frameworks", skills: [[logo("react/react-original"), "React"], [logo("nextjs/nextjs-original"), "Next.js"], [logo("nodejs/nodejs-original"), "Node.js"], [logo("fastapi/fastapi-original"), "FastAPI"]] },
+  { title: "Datos & Cloud", skills: [[logo("postgresql/postgresql-original"), "PostgreSQL"], [logo("redis/redis-original"), "Redis"], [logo("amazonwebservices/amazonwebservices-original-wordmark"), "AWS"], [logo("docker/docker-original"), "Docker"]] },
+  { title: "Herramientas", skills: [[logo("git/git-original"), "Git"], [logo("figma/figma-original"), "Figma"], [logo("linux/linux-original"), "Linux"], [logo("grafana/grafana-original"), "Grafana"]] },
 ];
 
 const timeline = [
@@ -225,7 +227,7 @@ export default function App() {
     <main>
       <nav className="nav-shell" aria-label="Navegación principal">
         <div className="nav-inner">
-          <button className="logo" onClick={() => scrollTo("inicio")} aria-label="Ir al inicio">TN<span>.</span></button>
+          <button className="logo" onClick={() => scrollTo("inicio")} aria-label="Ir al inicio">JS<span>.</span></button>
           <div className={`nav-links ${menuOpen ? "open" : ""}`}>
             {navLinks.map(([label, id]) => <button key={id} onClick={() => scrollTo(id)}>{label}</button>)}
           </div>
@@ -245,9 +247,9 @@ export default function App() {
           <p className="hero-subtitle reveal">Ingeniero de Sistemas · Full Stack & Cloud</p>
           <div className="hero-actions reveal">
             <button className="primary-button" onClick={() => scrollTo("proyectos")}>Ver proyectos <Icon name="arrow" /></button>
-            <a className="secondary-button" href="/cv-tu-nombre.pdf" download>Descargar CV <Icon name="download" size={18} /></a>
+            <a className="secondary-button" href="/cv-jose-salcedo.pdf" download>Descargar CV <Icon name="download" size={18} /></a>
           </div>
-          <div className="type-line reveal"><span>~/tu-nombre</span><b> $ </b><span>creando {typedText}</span><i /></div>
+          <div className="type-line reveal"><span>~/jose-salcedo</span><b> $ </b><span>creando {typedText}</span><i /></div>
         </div>
         <button className="scroll-cue" onClick={() => scrollTo("sobre-mi")} aria-label="Bajar a sobre mí"><span>Descubre más</span><Icon name="chevron" /></button>
       </section>
@@ -257,7 +259,7 @@ export default function App() {
           <SectionHeading eyebrow="Sobre mí" title="Tecnología con criterio. Código con intención." />
           <div className="about-grid">
             <div className="portrait-wrap reveal">
-              <img src="https://images.unsplash.com/photo-1767175620484-1ed37931a0d1?crop=faces&fit=crop&fm=jpg&q=85&w=1000&h=1200" alt="Retrato profesional de Tu Nombre" />
+              <img src="https://images.unsplash.com/photo-1767175620484-1ed37931a0d1?crop=faces&fit=crop&fm=jpg&q=85&w=1000&h=1200" alt="Retrato profesional de Jose Salcedo" />
               <span>Basado en Colombia<br />Trabajando globalmente</span>
             </div>
             <div className="about-copy reveal">
@@ -303,7 +305,7 @@ export default function App() {
             {skillGroups.map((group) => (
               <article className="skill-group reveal" key={group.title}>
                 <h3>{group.title}</h3>
-                <div>{group.skills.map(([mark, name], index) => <span className={`skill skill-${index}`} key={name}><i>{mark}</i>{name}</span>)}</div>
+                <div>{group.skills.map(([src, name], index) => <span className={`skill skill-${index}`} key={name}><i><img src={src} alt="" className={name === "Next.js" || name === "AWS" ? "logo-mono" : undefined} /></i>{name}</span>)}</div>
               </article>
             ))}
           </div>
@@ -357,7 +359,7 @@ export default function App() {
       </section>
 
       <footer>
-        <div className="container footer-inner"><button className="logo" onClick={() => scrollTo("inicio")}>TN<span>.</span></button><p>© {new Date().getFullYear()} Tu Nombre. Diseñado y desarrollado con intención.</p><div><a href="https://github.com/" aria-label="GitHub"><Icon name="github" /></a><a href="https://linkedin.com/" aria-label="LinkedIn"><Icon name="linkedin" /></a></div></div>
+        <div className="container footer-inner"><button className="logo" onClick={() => scrollTo("inicio")}>JS<span>.</span></button><p>© {new Date().getFullYear()} Jose Salcedo. Diseñado y desarrollado con intención.</p><div><a href="https://github.com/" aria-label="GitHub"><Icon name="github" /></a><a href="https://linkedin.com/" aria-label="LinkedIn"><Icon name="linkedin" /></a></div></div>
       </footer>
     </main>
   );
